@@ -57,8 +57,10 @@ def send_command(acer_command):
             ser_io.write(unicode(acer_command + '\r'))
             ser_io.flush()
             
-            while projector.inWaiting() == 0:
+            for x in range(0, 5):
                 time.sleep(1)
+                if projector.inWaiting() > 0:
+                    break
             
             while projector.inWaiting() > 0:
                 line = ser_io.readline();
@@ -93,9 +95,11 @@ def get_status():
             projector.flushOutput()
         
             ser_io.write(unicode(status_command + '\r'))
-            
-            while projector.inWaiting() == 0:
+
+            for x in range(0, 5):
                 time.sleep(1)
+                if projector.inWaiting() > 0:
+                    break
             
             while projector.inWaiting() > 0:
                 line = ser_io.readline();
