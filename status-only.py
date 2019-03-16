@@ -90,7 +90,7 @@ def get_status():
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('-st', '--statetopic', help='Optional topic for state')
+parser.add_argument('-sp', '--serialport', help='Serial port for acer projector (Required)', required=True)
 
 args = vars(parser.parse_args())
 
