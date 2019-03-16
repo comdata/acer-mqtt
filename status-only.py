@@ -1,4 +1,6 @@
 #!/usr/bin/python -u
+import paho.mqtt.client as mqttClient
+import paho.mqtt.publish as publish
 import time
 import serial
 import json
