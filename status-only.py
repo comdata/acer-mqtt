@@ -51,7 +51,7 @@ def get_status():
         
         ser_io = get_io_wrapper(projector)
         
-        print((projector.isOpen()))
+        print(projector.isOpen())
         
         if projector.isOpen():
             
@@ -59,9 +59,7 @@ def get_status():
             projector.flushInput()
             projector.flushOutput()
         
-            #ser_io.write(unicode(status_command + '\r'))
-            
-            ser_io.write((status_command + '\r').encode())
+            ser_io.write(unicode(status_command + '\r'))
             
             print(projector.inWaiting())
 
@@ -70,7 +68,7 @@ def get_status():
                 if projector.inWaiting() > 0:
                     break
             
-            print((projector.inWaiting()))
+            print(projector.inWaiting())
             
             while projector.inWaiting() > 0:
                 line = ser_io.readline();
