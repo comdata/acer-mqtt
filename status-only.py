@@ -62,11 +62,15 @@ def get_status():
             projector.flushOutput()
         
             ser_io.write(unicode(status_command + '\r'))
+            
+            print(projector.inWaiting())
 
             for x in range(0, 5):
                 time.sleep(1)
                 if projector.inWaiting() > 0:
                     break
+            
+            print(projector.inWaiting())
             
             while projector.inWaiting() > 0:
                 line = ser_io.readline();
