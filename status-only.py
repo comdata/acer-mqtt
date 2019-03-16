@@ -60,7 +60,8 @@ def get_status():
             projector.flushOutput()
         
             #ser_io.write(unicode(status_command + '\r'))
-            ser_io.write(str(status_command + '\r'))
+            
+            ser_io.write((status_command + '\r').encode())
             
             print(projector.inWaiting())
 
