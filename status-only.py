@@ -40,11 +40,6 @@ def get_io_wrapper(projector):
         line_buffering=True
     )
 
-
-
-
-
-
     
 def get_status():
 
@@ -54,9 +49,14 @@ def get_status():
         
         projector = get_projector()
         
+        print(projector)
+        
         ser_io = get_io_wrapper(projector)
         
+        print(projector.isOpen())
+        
         if projector.isOpen():
+            
 
             projector.flushInput()
             projector.flushOutput()
